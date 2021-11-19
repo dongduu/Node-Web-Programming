@@ -7,12 +7,50 @@
     <title>Document</title>
 </head>
 <body>
-    haha
 <script>
-var a = ['hello', 20, 'js', 55];
-for(var i = 0; i < a.length; i++) {
-    console.log(a[i]);
-} 
+// for문
+for(i = 0; i < 5; i++) {
+    document.write('화면에 찍어주세요우');
+    document.write('<br>'); // 한 줄 띄우는 태그
+}
+document.write('<br>');
+document.write('<br>');
+
+// while문
+var i = 0;
+while(i < 10) {
+    document.write('안녕하세요우');
+    document.write('<br>');
+    i++;
+}
+document.write('<br>');
+document.write('<br>');
+
+// do while문
+var i = 0;
+do{
+    document.write('누구세요우');
+    document.write('<br>');
+    i++;
+} while(i < 5)
+
+var i = 0;
+do{
+    document.write('이게 뭐에요우');
+    document.write('<br>');
+    i++;
+} while(i < 0)
+document.write('<br>');
+document.write('<br>');
+
+// 이중반복문 - 구구단
+for(i = 2; i <= 9; i++) {
+    for(j = 2; j <= 9; j++) {
+        document.write(i + 'x' + j + '=' + i *j);
+        document.write('<br>');
+    }
+    document.write('<br>');
+}
 </script>
 </body>
 </html>
