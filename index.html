@@ -8,31 +8,27 @@
 </head>
 <body>
 <script>
-// 자바스크립트는 프로토타입 기반
-function Car (a, b) {
-    this.name = a;
-    this.color = b;
-}
-Car.prototype.move = function() {
-    console.log(this.name + "차이고 " + this.color + "색 입니다.");
-}
-
-var a = new Car("동두", "노랑");
-console.log(a.name);
-console.log(a.color);
-// => Car라는 틀에서 마구 찍어낸다고 보면 됨~~
-
-a.move();
-
-
-var b = [1, 2, 3, 4, 5, 6];
-Array.prototype.print = function() {
-    for(var i = 0; i < this.length; i++) {
-        console.log(i);
-    }
+var a = {
+    "a" : 110,
+    "b" : 'hello',
+    "c" : function () {
+        console.log('hi');
+        console.log(this.a);
+        this.a++;
+    },
 }
 
-b.print();
+console.log(a.a);
+console.log(a.b);
+a.c();
+a.c();
+console.log(a.a);
+
+Object.prototype.log = function() {
+    console.log(this.a + 20); 
+}
+
+a.log();
 </script>
 </body>
 </html>
