@@ -8,61 +8,31 @@
 </head>
 <body>
 <script>
-// 기명함수(기본함수)
-function test(a, b) {
-    console.log(a);
-    console.log(b);
-}
-test(10, 11);
-
-// 입력값과 아웃풋 둘 다 있는 함수
-function sum(a, b) {
-    return a + b;
-}
-var c = sum(12, 45);
-console.log(c);
-
-// 입력값은 없지만 아웃풋은 있는 함수
-function hi() {
-    return 'sum 함수를 호출했나요?';
-}
-var d = hi();
-console.log(d);
-
-// 입력값도 없고 아웃풋도 없는 함수
-function what() {
-    console.log("몬데요 ㅋㅎ");
-}
-var e = what(); // 콘솔로 칠 필요가 없음
-
-// 익명함수
-var sum2 = function(a, b) {
-    console.log(a+b);
-}
-var f = sum2(3, 5);
-
-// 함수를 사용해서 객체 만들기
-function Car(a, b) {
+// 자바스크립트는 프로토타입 기반
+function Car (a, b) {
     this.name = a;
     this.color = b;
 }
-var g = new Car("동두자동차", "노랑");
-console.log(g.name);
-console.log(g.color);
-var h = new Car("현시기자동차", "파랑");
-console.log(h.name);
-console.log(h.color);
-
-// 변수 사용 및 오류
-function Car2(a, b, c) {
-    this.name = a;
-    this.color = b; // this는 공용변수라서 함수 바깥에서 부르기가 가능 => 퍼블릭 변수라고 함
-    this.move = c; // 함수 내부에서만 사용 가능 => 프라이빗 변수라고 함
+Car.prototype.move = function() {
+    console.log(this.name + "차이고 " + this.color + "색 입니다.");
 }
-var g = new Car2("현대자동차", "빨강");
-console.log(g.name);
-console.log(g.color);
-console.log(g.move); // 오류 
+
+var a = new Car("동두", "노랑");
+console.log(a.name);
+console.log(a.color);
+// => Car라는 틀에서 마구 찍어낸다고 보면 됨~~
+
+a.move();
+
+
+var b = [1, 2, 3, 4, 5, 6];
+Array.prototype.print = function() {
+    for(var i = 0; i < this.length; i++) {
+        console.log(i);
+    }
+}
+
+b.print();
 </script>
 </body>
 </html>
